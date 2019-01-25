@@ -1,23 +1,17 @@
 import React from 'react';
 
-// import { getColor } from 'utils/colors';
-
 import {
   Card,
-  CardBody,
-  CardHeader,
-  CardTitle,
   CardGroup,
   CardDeck,
   Row,
-  Col,
-  ListGroup,
-  ListGroupItem,
-  Badge,
-  Button,
+  Col
 } from 'reactstrap';
 
 import Page from 'components/Page';
+import MainCard from 'components/MainCard';
+
+import kidsImg from 'assets/img/kids_1600x300.jpg';
 
 class MainPage extends React.Component {
   componentDidMount() {}
@@ -29,6 +23,8 @@ class MainPage extends React.Component {
         className="MainPage"
         title="Главная">
         <Row>
+
+          <MainCard src={kidsImg} />
           <Col lg={4} md={6} sm={6} xs={10}>
            
           </Col>
@@ -53,11 +49,7 @@ class MainPage extends React.Component {
         <CardGroup style={{ marginBottom: '1rem' }}>
        
         </CardGroup>
-
         
-
-        
-
         <CardDeck style={{ marginBottom: '1rem' }}>
           <Card body style={{ overflowX: 'auto' }}>
            

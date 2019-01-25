@@ -1,0 +1,16 @@
+.ch-header {
+    margin-bottom: $spacer * .5;
+    border-bottom: $border-width solid $border-color;
+  
+    &__nav-right {
+      flex-direction: row;
+      justify-content: flex-end;
+      margin-left: auto;
+    }
+
+    &__nav-link {
+      border-left: 1px solid #000;
+      padding: 0;
+    }
+  }
+  

@@ -1,26 +1,51 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
 
-class App extends Component {
+import { EmptyLayout, LayoutRoute, MainLayout } from 'components/Layout';
+import { STATE_LOGIN, STATE_SIGNUP } from 'components/AuthForm';
+
+import AuthPage from 'pages/AuthPage';
+import AuthModalPage from 'pages/AuthModalPage';
+import MainPage from 'pages/MainPage';
+
+import './styles/style.css';
+
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save  sadasdload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <BrowserRouter basename="/">
+          <Switch>
+            <LayoutRoute
+              exact
+              path="/login"
+              layout={EmptyLayout}
+              component={props => (
+                <AuthPage {...props} authState={STATE_LOGIN} />
+              )}
+            />
+            <LayoutRoute
+              exact
+              path="/signup"
+              layout={EmptyLayout}
+              component={props => (
+                <AuthPage {...props} authState={STATE_SIGNUP} />
+              )}
+            />
+            <LayoutRoute
+              exact
+              path="/login-modal"
+              layout={MainLayout}
+              component={AuthModalPage}
+            />
+            <LayoutRoute
+              exact
+              path="/"
+              layout={MainLayout}
+              component={MainPage}
+            />
+            <Redirect to="/" />
+          </Switch>
+      </BrowserRouter>
     );
   }
 }

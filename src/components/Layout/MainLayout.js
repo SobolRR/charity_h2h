@@ -5,11 +5,6 @@ import React from 'react';
 // import { NOTIFICATION_SYSTEM_STYLE } from 'utils/constants';
 
 class MainLayout extends React.Component {
-  static isSidebarOpen() {
-    return document
-      .querySelector('.cr-sidebar')
-      .classList.contains('cr-sidebar--open');
-  }
 
   componentWillReceiveProps({ breakpoint }) {
     if (breakpoint !== this.props.breakpoint) {
@@ -42,7 +37,7 @@ class MainLayout extends React.Component {
   render() {
     const { children } = this.props;
     return (
-      <main className="cr-app bg-light">
+      <main className="ch-app bg-light">
         <Content fluid onClick={this.handleContentClick} className='col-md-10'>
           <Header />
           {children}

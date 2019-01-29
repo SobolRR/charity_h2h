@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'utils/propTypes';
 
-import bn from 'utils/bemnames';
-
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 
 import Typography from './Topography';
-
-const bem = bn.create('page');
 
 const Page = ({
   title,
@@ -17,20 +13,19 @@ const Page = ({
   children,
   ...restProps
 }) => {
-  const classes = bem.b('px-3', className);
   
   return (
-    <Tag className={classes} {...restProps}>
-      <div className={bem.e('header')}>
+    <Tag className={className} {...restProps}>
+      <div>
         {title && typeof title === 'string' ? (
-          <Typography type="h1" className={bem.e('title')}>
+          <Typography type="h1">
             {title}
           </Typography>
         ) : (
             title
           )}
         {breadcrumbs && (
-          <Breadcrumb className={bem.e('breadcrumb')}>
+          <Breadcrumb>
             <BreadcrumbItem>Home</BreadcrumbItem>
             {breadcrumbs.length &&
               breadcrumbs.map(({ name, active }, index) => (
